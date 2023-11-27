@@ -1,24 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simulation Interface</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLsim Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Genetic Simulation Control Panel</h1>
-        <!-- Form to Start Simulation -->
-        <div>
-            <input type="number" id="generation-input" placeholder="Number of Generations">
-            <button onclick="startSimulation()">Start Simulation</button>
-        </div>
-        <!-- Display Area for Simulation Data -->
-        <div id="simulation-data">
-            <!-- Dynamic content will be added here -->
-        </div>
+    <div class="container mt-4">
+        <h1>Welcome to MLsim</h1>
+        <p>This is your MLsim application enhanced with Bootstrap.</p>
+
+        <!-- Data Visualization Section -->
+        <h2>Data Visualization</h2>
+        <canvas id="myChart" width="400" height="400"></canvas>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script>
+            // Example chart setup - this will need to be dynamically updated with your data
+            $(document).ready(function() {
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Sample1', 'Sample2', 'Sample3'],
+                        datasets: [{
+                            label: 'Sample Data',
+                            data: [12, 19, 3],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(255, 206, 86, 0.5)'
+                            ]
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{ ticks: { beginAtZero: true } }]
+                        }
+                    }
+                });
+            });
+        </script>
     </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
