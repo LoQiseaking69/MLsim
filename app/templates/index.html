@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulation Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Genetic Simulation Control Panel</h1>
+        <!-- Form to Start Simulation -->
+        <div>
+            <input type="number" id="generation-input" placeholder="Number of Generations">
+            <button onclick="startSimulation()">Start Simulation</button>
+        </div>
+        <!-- Display Area for Simulation Data -->
+        <div id="simulation-data">
+            <!-- Dynamic content will be added here -->
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
